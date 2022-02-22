@@ -10,12 +10,29 @@
 
 """
 
+import csv
+
+
+def writer(any_list):
+    with open('people.csv', 'w', encoding='utf-8') as f:
+        headers = ['name', 'age', 'job']
+        wr = csv.DictWriter(f, headers, delimiter = ';')
+        wr.writeheader()
+        for item in any_list:
+            wr.writerow(item)
+
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    people = [
+        {'name': 'Маша', 'age': 25, 'job': 'Scientist'}, 
+        {'name': 'Вася', 'age': 8, 'job': 'Programmer'}, 
+        {'name': 'Эдуард', 'age': 48, 'job': 'Big boss'},
+        {'name': 'Nick', 'age': 18, 'job': 'Student'},
+    ]
+    writer(people)
 
 if __name__ == "__main__":
     main()
