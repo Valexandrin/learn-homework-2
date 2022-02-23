@@ -11,15 +11,13 @@
 5. Сохраните результат в файл referat2.txt
 """
 
-def reader(file_name):
+def read_change_symbols(file_name):
     with open(file_name, 'r', encoding='utf-8') as f:
-        text = f.read()
-        length = len(text.split())
-        text = text.replace('.', '!')
-        return text
+        text = f.read()                
+        return text.replace('.', '!')
 
 
-def writer(text):
+def write(text):
     with open('referat2.txt', 'w', encoding='utf-8') as f2:
         f2.write(text)
 
@@ -29,8 +27,10 @@ def main():
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    get_text = reader('referat.txt')
-    writer(get_text)                    
+    get_text = read_change_symbols('referat.txt')
+    print('Symbols: ', len(get_text))
+    print('Words: ', len(get_text.split()))
+    write(get_text)
 
 
 if __name__ == "__main__":
