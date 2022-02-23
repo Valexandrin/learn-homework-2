@@ -13,12 +13,12 @@
 import csv
 
 
-def writer(any_list):
+def write_csv(people_list):
     with open('people.csv', 'w', encoding='utf-8') as f:
         headers = ['name', 'age', 'job']
         wr = csv.DictWriter(f, headers, delimiter = ';')
         wr.writeheader()
-        for item in any_list:
+        for item in people_list:
             wr.writerow(item)
 
 def main():
@@ -32,7 +32,7 @@ def main():
         {'name': 'Эдуард', 'age': 48, 'job': 'Big boss'},
         {'name': 'Nick', 'age': 18, 'job': 'Student'},
     ]
-    writer(people)
+    write_csv(people)
 
 if __name__ == "__main__":
     main()
